@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaludYa! — Mi Perfil</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/perfil.css">
+</head>
+<body class="perfil-body">
+
+  <div class="perfil-container">
+
+    <!-- Header -->
+    <div class="page-header warning">
+      <div class="page-header__left">
+        <div class="page-header__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div class="page-header__info">
+          <h1 class="page-header__title">Mi Perfil</h1>
+          <p class="page-header__subtitle">Gestiona tu información personal y seguridad</p>
+        </div>
+      </div>
+      <button class="btn btn-ghost btn-sm" id="backBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Regresar
+      </button>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs" style="margin-bottom:var(--space-6);">
+      <button class="tab-btn active" data-panel="personalPanel">Datos Personales</button>
+      <button class="tab-btn" data-panel="securityPanel">Seguridad</button>
+    </div>
+
+    <!-- Personal Data Panel -->
+    <div class="tab-panel active" id="personalPanel">
+      <div class="perfil-card">
+        <div class="perfil-card__body">
+          <div class="perfil-card__section-title">Información Personal</div>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label class="form-label" for="fullName">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+                Nombre Completo
+              </label>
+              <input type="text" id="fullName" class="form-control" placeholder="Tu nombre completo">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                Correo Electrónico
+              </label>
+              <input type="email" id="email" class="form-control" placeholder="correo@ejemplo.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="phone">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.18 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                Teléfono
+              </label>
+              <input type="tel" id="phone" class="form-control" placeholder="+57 300 000 0000">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="birthdate">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+                </svg>
+                Fecha de Nacimiento
+              </label>
+              <input type="date" id="birthdate" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="address">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+                Dirección
+              </label>
+              <input type="text" id="address" class="form-control" placeholder="Tu dirección">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="bloodType">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>
+                </svg>
+                Tipo de Sangre
+              </label>
+              <input type="text" id="bloodType" class="form-control" placeholder="Ej: O+, A-, B+">
+            </div>
+
+          </div>
+
+          <div class="save-row">
+            <button class="btn btn-warning btn-block btn-lg" id="savePersonalBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                <polyline points="17 21 17 13 7 13 7 21"/>
+                <polyline points="7 3 7 8 15 8"/>
+              </svg>
+              Guardar Cambios
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Security Panel -->
+    <div class="tab-panel" id="securityPanel">
+      <div class="perfil-card">
+        <div class="perfil-card__body">
+
+          <div class="security-section">
+            <div class="security-section__title">Cambiar Contraseña</div>
+            <div class="security-form">
+
+              <div class="form-group">
+                <label class="form-label" for="currentPassword">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                  Contraseña Actual
+                </label>
+                <input type="password" id="currentPassword" class="form-control" placeholder="••••••••">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="newPassword">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                  Nueva Contraseña
+                </label>
+                <input type="password" id="newPassword" class="form-control" placeholder="Mínimo 8 caracteres">
+                <div class="password-strength">
+                  <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
+                  <span class="strength-label" id="strengthLabel"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="confirmPassword">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                  Confirmar Nueva Contraseña
+                </label>
+                <input type="password" id="confirmPassword" class="form-control" placeholder="Repite la contraseña">
+              </div>
+
+            </div>
+          </div>
+
+          <div class="save-row">
+            <button class="btn btn-primary btn-block btn-lg" id="savePasswordBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              Actualizar Contraseña
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/perfil.js"></script>
+</body>
+</html>

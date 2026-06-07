@@ -1,0 +1,134 @@
+/* ============================================
+   SaludYa! - Appointments (Citas) Styles
+   ============================================ */
+
+.citas-body {
+  min-height: 100vh;
+  background: var(--gradient-bg);
+  padding: var(--space-8);
+}
+
+.citas-container {
+  max-width: 960px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Layout: form + list side by side */
+.citas-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+.citas-layout.form-hidden {
+  grid-template-columns: 1fr;
+}
+
+/* New Appointment Form */
+.cita-form-card {
+  background: var(--color-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-primary);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  animation: slideIn 0.3s ease;
+}
+.cita-form-card__header {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+.cita-form-card__title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--color-text);
+}
+.cita-form-card__body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Time row */
+.time-row {
+  display: grid;
+  grid-template-columns: 1fr 80px 80px;
+  gap: var(--space-3);
+  align-items: end;
+}
+
+/* Appointment List */
+.citas-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cita-item {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: var(--space-5) var(--space-6);
+  box-shadow: var(--shadow-xs);
+  transition: var(--transition-base);
+  animation: fadeIn 0.3s ease;
+}
+.cita-item:hover { box-shadow: var(--shadow-sm); }
+
+.cita-item__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+.cita-item__title {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--color-text);
+}
+.cita-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+.cita-item__meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.cita-item__meta-item svg { color: var(--color-primary); }
+
+.cita-item__reason {
+  font-size: var(--font-sm);
+  color: var(--color-text-muted);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+
+.cita-item__actions {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: flex-end;
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+@media (max-width: 768px) {
+  .citas-body { padding: var(--space-4); }
+  .citas-layout { grid-template-columns: 1fr; }
+  .time-row { grid-template-columns: 1fr 1fr; }
+}

@@ -1,0 +1,102 @@
+/* ============================================
+   SaludYa! - Perfil (Profile) Styles
+   ============================================ */
+
+.perfil-body {
+  min-height: 100vh;
+  background: var(--gradient-bg);
+  padding: var(--space-8);
+}
+
+.perfil-container {
+  max-width: 720px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Tab panel */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeIn 0.3s ease; }
+
+/* Personal info card */
+.perfil-card {
+  background: var(--color-card);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.perfil-card__body {
+  padding: var(--space-8);
+}
+.perfil-card__section-title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+}
+
+/* Form grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5) var(--space-6);
+  margin-bottom: var(--space-6);
+}
+.form-grid .full-span { grid-column: 1 / -1; }
+
+/* Security section */
+.security-section {
+  margin-bottom: var(--space-6);
+}
+.security-section__title {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+.security-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Password strength */
+.password-strength {
+  margin-top: var(--space-2);
+}
+.strength-bar {
+  height: 4px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: var(--space-1);
+}
+.strength-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: var(--transition-base);
+  width: 0%;
+}
+.strength-fill.weak   { background: var(--color-destructive); width: 33%; }
+.strength-fill.medium { background: var(--color-warning);     width: 66%; }
+.strength-fill.strong { background: var(--color-accent);      width: 100%; }
+.strength-label { font-size: var(--font-xs); color: var(--color-text-muted); }
+
+/* Save button row */
+.save-row {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Warning tabs for profile */
+.tabs.warning .tab-btn.active {
+  color: var(--color-warning-dark);
+}
+
+@media (max-width: 600px) {
+  .perfil-body { padding: var(--space-4); }
+  .form-grid { grid-template-columns: 1fr; }
+}

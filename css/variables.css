@@ -1,0 +1,136 @@
+/* ============================================
+   SaludYa! - Design System Variables
+   Regla de 8 puntos | Poppins | Lucide Icons
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* ─── Color Palette ─── */
+  --color-primary:       #c550e8;
+  --color-primary-dark:  #a83ec8;
+  --color-primary-light: #d97df0;
+  --color-secondary:     #7d6985;
+  --color-accent:        #00d4a1;
+  --color-accent-dark:   #00b389;
+  --color-warning:       #e6b84d;
+  --color-warning-dark:  #c99b38;
+  --color-destructive:   #d63939;
+  --color-destructive-dark: #b52e2e;
+
+  /* ─── Neutrals ─── */
+  --color-bg:            #fafcfb;
+  --color-card:          #ffffff;
+  --color-dark:          #2a3d35;
+  --color-border:        #e2e8f0;
+  --color-border-light:  #f0f4f8;
+  --color-text:          #1a2e25;
+  --color-text-muted:    #64748b;
+  --color-text-light:    #94a3b8;
+
+  /* ─── Gradients ─── */
+  --gradient-primary:    linear-gradient(135deg, #c550e8 0%, #7d6985 100%);
+  --gradient-accent:     linear-gradient(135deg, #00d4a1 0%, #0099b5 100%);
+  --gradient-warning:    linear-gradient(135deg, #e6b84d 0%, #c98d2e 100%);
+  --gradient-bg:         linear-gradient(135deg, #f8f4ff 0%, #f0fdf8 100%);
+
+  /* ─── Shadows ─── */
+  --shadow-xs:   0 1px 2px rgba(0,0,0,0.05);
+  --shadow-sm:   0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md:   0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg:   0 8px 32px rgba(0,0,0,0.12);
+  --shadow-xl:   0 16px 48px rgba(0,0,0,0.16);
+  --shadow-primary: 0 4px 20px rgba(197,80,232,0.30);
+  --shadow-accent:  0 4px 20px rgba(0,212,161,0.30);
+
+  /* ─── 8-Point Spacing Scale ─── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-7:  28px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* ─── Border Radius ─── */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  14px;
+  --radius-xl:  20px;
+  --radius-2xl: 28px;
+  --radius-full: 9999px;
+
+  /* ─── Typography ─── */
+  --font-family: 'Poppins', sans-serif;
+  --font-xs:   11px;
+  --font-sm:   12px;
+  --font-base: 14px;
+  --font-md:   15px;
+  --font-lg:   16px;
+  --font-xl:   18px;
+  --font-2xl:  22px;
+  --font-3xl:  28px;
+  --font-4xl:  36px;
+
+  /* ─── Transitions ─── */
+  --transition-fast:   all 0.15s ease;
+  --transition-base:   all 0.25s ease;
+  --transition-slow:   all 0.40s ease;
+  --transition-spring: all 0.30s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ─── Reset & Base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { font-size: 16px; }
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+input, select, textarea { font-family: inherit; }
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-light); }
+
+/* ─── Shared Animations ─── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
