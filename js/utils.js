@@ -21,7 +21,7 @@ const Store = {
 function requireAuth() {
   const user = Store.get('user');
   if (!user) {
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
     return null;
   }
   return user;
@@ -29,7 +29,7 @@ function requireAuth() {
 
 function logout() {
   Store.remove('user');
-  window.location.href = 'index.html';
+  window.location.href = '../index.html';
 }
 
 // ─── Toast notification ───

@@ -7,7 +7,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Redirect if already logged in
   const existing = Store.get('user');
-  if (existing) { window.location.href = 'dashboard.html'; return; }
+  if (existing) { window.location.href = 'pages/dashboard.html'; return; }
 
   const form         = document.getElementById('loginForm');
   const usernameInput= document.getElementById('username');
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         birthdate: '1990-05-15',
         bloodType: 'O+'
       });
-      window.location.href = 'dashboard.html';
+      window.location.href = 'pages/dashboard.html';
     } else {
       setLoading(false);
       showError('Usuario o contraseña incorrectos. Intente con juan.perez / saludya123');
