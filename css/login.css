@@ -4,7 +4,7 @@
 
 .login-body {
   min-height: 100vh;
-  background: var(--gradient-bg);
+  background: var(--gradient-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +29,7 @@
 }
 .login-body::after {
   width: 320px; height: 320px;
-  background: rgba(0,212,161,0.10);
+  background: rgba(217,125,240,0.16);
   bottom: -60px; right: -60px;
 }
 

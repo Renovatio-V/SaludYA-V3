@@ -22,6 +22,39 @@ document.addEventListener('DOMContentLoaded', () => {
   // Demo credentials
   const DEMO_USER = { username: 'juan.perez', password: 'saludya123' };
 
+  async function typeDemoValue(input, value) {
+    if (input.value) return false;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      input.value = value;
+      return true;
+    }
+
+    let cancelled = false;
+    const cancel = () => { cancelled = true; };
+    const userEvents = ['beforeinput', 'keydown', 'paste', 'drop', 'pointerdown'];
+    userEvents.forEach(event => input.addEventListener(event, cancel, { once: true }));
+
+    try {
+      for (let index = 0; index < value.length; index++) {
+        if (cancelled || input.value !== value.slice(0, index)) break;
+        input.value += value[index];
+        await new Promise(resolve => setTimeout(resolve, 110));
+      }
+    } finally {
+      userEvents.forEach(event => input.removeEventListener(event, cancel));
+    }
+    return !cancelled && input.value === value;
+  }
+
+  if (!usernameInput.value && !passwordInput.value) {
+    typeDemoValue(usernameInput, DEMO_USER.username)
+      .then(typed => typed
+        ? new Promise(resolve => setTimeout(() => resolve(true), 250))
+        : false)
+      .then(shouldTypePassword => shouldTypePassword && typeDemoValue(passwordInput, DEMO_USER.password));
+  }
+
   // Toggle password visibility
   toggleBtn.addEventListener('click', () => {
     const isText = passwordInput.type === 'text';
