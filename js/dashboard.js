@@ -15,9 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Logout button
   const logoutBtn = document.getElementById('logoutBtn');
   if (logoutBtn) {
-    logoutBtn.addEventListener('click', () => {
-      if (confirm('¿Deseas cerrar sesión?')) logout();
-    });
+    logoutBtn.addEventListener('click', logout);
   }
 
   // Animate cards staggered

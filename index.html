@@ -84,8 +84,58 @@
       </button>
     </form>
 
-    <p class="login-register" id="registerLink">¿No tienes cuenta? Regístrate aquí</p>
+    <button type="button" class="login-register" id="registerLink" aria-haspopup="dialog">
+      ¿No tienes cuenta? Regístrate aquí
+    </button>
   </div>
+
+  <dialog class="register-dialog" id="registerDialog" aria-labelledby="registerTitle">
+    <div class="register-dialog__header">
+      <div>
+        <h2 class="register-dialog__title" id="registerTitle">Crear cuenta</h2>
+        <p class="register-dialog__subtitle">Ingresa tus datos personales</p>
+      </div>
+      <button type="button" class="register-dialog__close" id="closeRegister" aria-label="Cerrar registro">
+        &times;
+      </button>
+    </div>
+
+    <form class="register-form" id="registerForm">
+      <div class="register-form__fields">
+        <div class="form-group">
+          <label class="form-label" for="registerName">Nombre completo</label>
+          <input class="form-control" id="registerName" name="name" type="text" placeholder="Ingrese su nombre completo" autocomplete="name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="registerUsername">Usuario</label>
+          <input class="form-control" id="registerUsername" name="username" type="text" placeholder="Elija un usuario" autocomplete="username" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="registerEmail">Correo electrónico</label>
+          <input class="form-control" id="registerEmail" name="email" type="email" placeholder="correo@ejemplo.com" autocomplete="email" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="registerPhone">Teléfono</label>
+          <input class="form-control" id="registerPhone" name="phone" type="tel" placeholder="Ingrese su teléfono" autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="registerBirthdate">Fecha de nacimiento</label>
+          <input class="form-control" id="registerBirthdate" name="birthdate" type="date" autocomplete="bday">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="registerPassword">Contraseña</label>
+          <input class="form-control" id="registerPassword" name="password" type="password" placeholder="Ingrese una contraseña" autocomplete="new-password" required>
+        </div>
+        <div class="form-group register-form__confirm">
+          <label class="form-label" for="registerPasswordConfirm">Confirmar contraseña</label>
+          <input class="form-control" id="registerPasswordConfirm" name="passwordConfirm" type="password" placeholder="Confirme su contraseña" autocomplete="new-password" required>
+        </div>
+      </div>
+      <div class="register-dialog__actions">
+        <button type="button" class="btn btn-gradient" id="closeRegisterAction">Cerrar</button>
+      </div>
+    </form>
+  </dialog>
 
   <script src="js/utils.js"></script>
   <script src="js/login.js"></script>

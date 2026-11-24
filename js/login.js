@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnText      = document.getElementById('btnText');
   const spinner      = document.getElementById('btnSpinner');
   const registerLink = document.getElementById('registerLink');
+  const registerDialog = document.getElementById('registerDialog');
+  const registerForm = document.getElementById('registerForm');
+  const closeRegister = document.getElementById('closeRegister');
+  const closeRegisterAction = document.getElementById('closeRegisterAction');
 
   // Demo credentials
   const DEMO_USER = { username: 'juan.perez', password: 'saludya123' };
@@ -110,7 +114,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   registerLink.addEventListener('click', () => {
-    showToast('Registro próximamente disponible', 'warning');
+    registerDialog.showModal();
+  });
+
+  [closeRegister, closeRegisterAction].forEach(button =>
+    button.addEventListener('click', () => registerDialog.close())
+  );
+
+  registerDialog.addEventListener('click', (event) => {
+    if (event.target === registerDialog) registerDialog.close();
+  });
+
+  registerDialog.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') registerDialog.close();
+  });
+
+  registerForm.addEventListener('submit', (event) => {
+    event.preventDefault();
   });
 
   // Clear error on input

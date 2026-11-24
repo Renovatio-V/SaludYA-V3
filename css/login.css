@@ -83,15 +83,75 @@
 
 /* Register link */
 .login-register {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
   text-align: center;
   margin-top: var(--space-5);
   font-size: var(--font-sm);
+  font-family: var(--font-family);
   color: var(--color-primary);
   font-weight: 500;
   cursor: pointer;
   transition: var(--transition-fast);
 }
 .login-register:hover { color: var(--color-primary-dark); text-decoration: underline; }
+
+/* Registration dialog */
+.register-dialog {
+  width: min(100% - var(--space-8), 640px);
+  max-width: 640px;
+  max-height: calc(100vh - var(--space-8));
+  margin: auto;
+  padding: var(--space-8);
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  background: var(--color-card);
+  color: var(--color-text);
+  box-shadow: var(--shadow-xl);
+}
+.register-dialog::backdrop {
+  background: rgba(26,46,37,0.58);
+  backdrop-filter: blur(4px);
+}
+.register-dialog[open] { animation: scaleIn 0.2s ease; }
+.register-dialog__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+.register-dialog__title {
+  font-size: var(--font-2xl);
+  font-weight: 700;
+}
+.register-dialog__subtitle {
+  margin-top: var(--space-1);
+  color: var(--color-text-muted);
+  font-size: var(--font-sm);
+}
+.register-dialog__close {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-3xl);
+  line-height: 1;
+}
+.register-dialog__close:hover { color: var(--color-primary); }
+.register-form__fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+.register-form__confirm { grid-column: 1 / -1; }
+.register-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-6);
+}
 
 /* Error message */
 .login-error {
@@ -107,3 +167,9 @@
   display: none;
 }
 .login-error.visible { display: flex; animation: fadeIn 0.2s ease; }
+
+@media (max-width: 520px) {
+  .register-dialog { padding: var(--space-6); }
+  .register-form__fields { grid-template-columns: 1fr; }
+  .register-form__confirm { grid-column: auto; }
+}
