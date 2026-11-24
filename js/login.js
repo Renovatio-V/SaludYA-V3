@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let index = 0; index < value.length; index++) {
         if (cancelled || input.value !== value.slice(0, index)) break;
         input.value += value[index];
-        await new Promise(resolve => setTimeout(resolve, 110));
+        await new Promise(resolve => setTimeout(resolve, 35));
       }
     } finally {
       userEvents.forEach(event => input.removeEventListener(event, cancel));
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!usernameInput.value && !passwordInput.value) {
     typeDemoValue(usernameInput, DEMO_USER.username)
       .then(typed => typed
-        ? new Promise(resolve => setTimeout(() => resolve(true), 250))
+        ? new Promise(resolve => setTimeout(() => resolve(true), 100))
         : false)
       .then(shouldTypePassword => shouldTypePassword && typeDemoValue(passwordInput, DEMO_USER.password));
   }
