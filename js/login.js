@@ -5,10 +5,6 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Redirect if already logged in
-  const existing = Store.get('user');
-  if (existing) { window.location.href = 'pages/dashboard.html'; return; }
-
   const form         = document.getElementById('loginForm');
   const usernameInput= document.getElementById('username');
   const passwordInput= document.getElementById('password');
