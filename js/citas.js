@@ -14,6 +14,7 @@ const SPECIALTIES = [
 let appointments = [];
 let currentFilter = 'all';
 let showingForm = false;
+let pendingCancelAptId = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   const user = requireAuth();
@@ -42,6 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const cancelBtn = document.getElementById('cancelFormBtn');
   const form      = document.getElementById('citaForm');
   const layout    = document.getElementById('citasLayout');
+  const cancelAptDialog = document.getElementById('cancelAptDialog');
+  const keepAptBtn = document.getElementById('keepAptBtn');
+  const confirmCancelAptBtn = document.getElementById('confirmCancelAptBtn');
+
+  keepAptBtn.addEventListener('click', () => cancelAptDialog.close());
+  cancelAptDialog.addEventListener('close', () => { pendingCancelAptId = null; });
+  confirmCancelAptBtn.addEventListener('click', () => {
+    const apt = appointments.find(a => a.id === pendingCancelAptId);
+    cancelAptDialog.close();
+    if (!apt) return;
+    apt.status = 'cancelled';
+    save();
+  });
 
   // Filter pills
   document.querySelectorAll('.filter-pill').forEach(pill => {
@@ -200,9 +214,9 @@ function confirmApt(id) {
 }
 
 function cancelApt(id) {
-  if (!confirm('¿Cancelar esta cita?')) return;
-  const apt = appointments.find(a => a.id === id);
-  if (apt) { apt.status = 'cancelled'; save(); }
+  if (!appointments.some(a => a.id === id)) return;
+  pendingCancelAptId = id;
+  document.getElementById('cancelAptDialog').showModal();
 }
 
 function save() {

@@ -157,6 +157,23 @@
 
   </div>
 
+  <dialog class="cancel-apt-dialog" id="cancelAptDialog" aria-labelledby="cancelAptTitle" aria-describedby="cancelAptDescription">
+    <div class="cancel-apt-dialog__accent"></div>
+    <div class="cancel-apt-dialog__content">
+      <div class="cancel-apt-dialog__icon" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 9v4m0 4h.01"/><path d="M10.3 3.9 1.8 18.5A2 2 0 0 0 3.5 21h17a2 2 0 0 0 1.7-2.5L13.7 3.9a2 2 0 0 0-3.4 0Z"/>
+        </svg>
+      </div>
+      <h2 class="cancel-apt-dialog__title" id="cancelAptTitle">¿Cancelar esta cita?</h2>
+      <p class="cancel-apt-dialog__description" id="cancelAptDescription">Esta acción marcará la cita como cancelada.</p>
+      <div class="cancel-apt-dialog__actions">
+        <button type="button" class="btn btn-outline" id="keepAptBtn">Mantener cita</button>
+        <button type="button" class="btn btn-destructive" id="confirmCancelAptBtn">Sí, cancelar</button>
+      </div>
+    </div>
+  </dialog>
+
   <script src="../js/utils.js"></script>
   <script src="../js/citas.js"></script>
 </body>

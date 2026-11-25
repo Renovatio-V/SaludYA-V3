@@ -127,8 +127,71 @@
   padding-top: var(--space-2);
 }
 
+/* Cancel appointment dialog */
+.cancel-apt-dialog {
+  position: fixed;
+  inset: 50% auto auto 50%;
+  width: min(440px, calc(100% - var(--space-8)));
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  color: var(--color-text);
+  background: var(--color-card);
+  box-shadow: var(--shadow-xl);
+  transform: translate(-50%, -50%);
+}
+.cancel-apt-dialog::backdrop {
+  background: rgba(26, 46, 37, 0.48);
+  backdrop-filter: blur(3px);
+}
+.cancel-apt-dialog[open] { animation: cancelDialogIn 0.2s ease; }
+@keyframes cancelDialogIn {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.96); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+.cancel-apt-dialog__accent {
+  height: 6px;
+  background: var(--gradient-accent);
+}
+.cancel-apt-dialog__content { padding: var(--space-6); }
+.cancel-apt-dialog__icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-md);
+  color: var(--color-accent-dark);
+  background: rgba(0, 212, 161, 0.12);
+}
+.cancel-apt-dialog__title {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+.cancel-apt-dialog__description {
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--font-sm);
+}
+.cancel-apt-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
 @media (max-width: 768px) {
   .citas-body { padding: var(--space-4); }
   .citas-layout { grid-template-columns: 1fr; }
   .time-row { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 420px) {
+  .cancel-apt-dialog__content { padding: var(--space-5); }
+  .cancel-apt-dialog__actions { flex-direction: column-reverse; }
+  .cancel-apt-dialog__actions .btn { width: 100%; }
 }
